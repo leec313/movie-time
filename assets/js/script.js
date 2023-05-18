@@ -1,5 +1,34 @@
-function runGame(gameType) {
+document.addEventListener("DOMContentLoaded", function() {
+  let buttons = document.getElementsByTagName("button");
 
+  for (let button of buttons) {
+    button.addEventListener("click", function() {
+      if (this.getAttribute("data-type") === "submit") {
+          checkAnswer();
+      } else {
+          let gameType = this.getAttribute("data-type");
+          runGame(gameType);
+      }
+    });
+  }
+});
+
+let currentQuestionIndex = 0;
+let scoreDisplay = 0;
+
+function runGame(gameType) {
+  if (gameType === "comedy") {
+    currentCategory = comedyMovies;
+    displayComedy();
+  } else if (gameType === "action") {
+    currentCategory = actionMovies;
+    displayAction();
+  } else if (gameType === "horror") {
+    currentCategory = horrorMovies;
+    displayHorror();
+  } else {
+    console.log("Invalid game type");
+  }
 }
 
 function displayComedy() {
@@ -83,5 +112,5 @@ function score() {
 }
 
 function checkAnswer() {
-
+  console.log(hello);
 }
