@@ -1,11 +1,3 @@
-// Wait for the DOM to finish loading before running the game
-// Get the button elements and add event listeners to them
-
-document.addEventListener("DOMContentLoaded", function() {
-  let buttons = document.getElementsByTagName("button");
-
-}
-
 const comedyMovies = [
   {
     question: "Who played the main character in the movie 'Dumb and Dumber'?",
@@ -74,3 +66,33 @@ const horrorMovies = [
     answer: "Child's Play"
   }
 ];
+
+const categoryButtons = document.getElementById('category-buttons');
+const comedyButton = document.getElementById('comedy-btn');
+const actionButton = document.getElementById('action-btn');
+const horrorButton = document.getElementById('horror-btn');
+const quizContainer = document.getElementById('quiz-container');
+const questionContainer = document.getElementById('question-container');
+const optionsContainer = document.getElementById('options-container');
+const submitButton = document.getElementById('submit-btn');
+const scoreContainer = document.getElementById('score-container');
+const scoreElement = document.getElementById('score');
+
+let currentCategory = [];
+let currentQuestionIndex = 0;
+let score = 0;
+
+comedyButton.addEventListener('click', () => {
+  startQuiz(comedyMovies);
+});
+
+actionButton.addEventListener('click', () => {
+  startQuiz(actionMovies);
+});
+
+horrorButton.addEventListener('click', () => {
+  startQuiz(horrorMovies);
+});
+
+submitButton.addEventListener('click', checkAnswer);
+

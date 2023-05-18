@@ -13,26 +13,20 @@
         <title>Movie Time</title>
     </head>
   <body>
-    <div class="container">
-      <h1>Movie Time!</h1>
-      <p>Quiz Game</p>
-      <div id="quiz">
-        <p id="question">Choose your genre:</p>
-        <div class="movie-type">
-          <button data-type="comedy">Comedy</button>
-          <button data-type="action">Action</button>
-          <button data-type="horror">Horror</button>
-        </div> 
-        <p id="question">Question goes here</p>
-        <div class="options">
-          <button id="btn0" class="btn"></button>
-          <button id="btn1" class="btn"></button>
-          <button id="btn2" class="btn"></button>
-          <button id="btn3" class="btn"></button>
-        </div>
-      </div>
-      <button id="next-btn" class="btn">Next</button>
-      <p id="score">Score: 0</p>
+    <div id="category-buttons">
+      <button id="comedy-btn">Comedy</button>
+      <button id="action-btn">Action</button>
+      <button id="horror-btn">Horror</button>
+    </div>
+  
+    <div id="quiz-container">
+      <div id="question-container"></div>
+      <div id="options-container"></div>
+      <button id="submit-btn">Submit</button>
+    </div>
+  
+    <div id="score-container">
+      Score: 0
     </div>
     <script src="assets/js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
