@@ -1,15 +1,12 @@
 .container {
     max-width: 100%;
-    margin: 0 auto;
+    margin-top: 50px;
     text-align: center;
     padding-right: 15px;
     padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 40px;
   }
 
   body {
@@ -43,6 +40,8 @@
 
   #question {
     color: black;
+    text-transform: none;
+    margin-top: 20px;
   }
   
   .options {
@@ -52,7 +51,7 @@
     margin-top: 20px;
   }
   
-  .btn {
+  button  {
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -77,8 +76,8 @@
   
   #score {
     font-size: 24px;
-    background-color: #f2ff00;
-    color: black;
+    background-color: #4CAF50;
+    color: #fff;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
