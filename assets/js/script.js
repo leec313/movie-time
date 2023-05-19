@@ -1,116 +1,147 @@
-document.addEventListener("DOMContentLoaded", function() {
-  let buttons = document.getElementsByTagName("button");
+// Function to display questions and options
+function displayQuestions(questions) {
+  const questionElement = document.getElementById("question-container");
+  const optionsElement = document.getElementById("options-container");
+  const nextButton = document.getElementById("submit-btn");
 
-  for (let button of buttons) {
-    button.addEventListener("click", function() {
-      if (this.getAttribute("data-type") === "submit") {
-          checkAnswer();
+  let currentQuestionIndex = 0;
+
+  // Show the current question and options
+  function showQuestion() {
+    const currentQuestion = questions[currentQuestionIndex];
+    questionElement.textContent = currentQuestion.question;
+
+    optionsElement.innerHTML = "";
+    currentQuestion.options.forEach((option) => {
+      const optionElement = document.createElement("div");
+      optionElement.classList.add("option");
+      optionElement.textContent = option;
+      optionsElement.appendChild(optionElement);
+
+      // Add event listener to each option
+      optionElement.addEventListener("click", selectOption);
+    });
+
+    nextButton.disabled = true;
+  }
+
+  // Function to handle option selection
+  function selectOption(event) {
+    const selectedOption = event.target;
+    const options = Array.from(optionsElement.children);
+
+    options.forEach((option) => {
+      if (option === selectedOption) {
+        option.classList.add("selected");
       } else {
-          let gameType = this.getAttribute("data-type");
-          runGame(gameType);
+        option.classList.remove("selected");
       }
     });
-  }
-});
 
-let currentQuestionIndex = 0;
-let scoreDisplay = 0;
+    nextButton.disabled = false;
+  }
+
+  // Function to move to the next question
+  function nextQuestion() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+      showQuestion();
+    } else {
+      // Quiz ended
+      questionElement.textContent = "Quiz ended!";
+      optionsElement.innerHTML = "";
+      nextButton.disabled = true;
+    }
+  }
+
+  // Attach event listener to the next button
+  nextButton.addEventListener("click", nextQuestion);
+
+  // Show the first question
+  showQuestion();
+}
 
 function runGame(gameType) {
+  let questions;
+
   if (gameType === "comedy") {
-    currentCategory = comedyMovies;
-    displayComedy();
+    questions = [
+      {
+        question: "Who played the main character in the movie 'Dumb and Dumber'?",
+        options: ["Jim Carrey", "Will Ferrell", "Adam Sandler", "Eddie Murphy"],
+        answer: "Jim Carrey"
+      },
+      {
+        question: "In the movie 'Anchorman: The Legend of Ron Burgundy', which city does Ron Burgundy work in?",
+        options: ["Los Angeles", "New York City", "San Diego", "Chicago"],
+        answer: "San Diego"
+      },
+      {
+        question: "What is the name of the comedy movie series about a group of friends and their misadventures in Las Vegas?",
+        options: ["The Hangover", "Superbad", "Bridesmaids", "Ted"],
+        answer: "The Hangover"
+      },
+      {
+        question: "Which actor played the character Michael Scott in the TV series 'The Office'?",
+        options: ["Steve Carell", "Jason Bateman", "Seth Rogen", "Will Ferrell"],
+        answer: "Steve Carell"
+      }
+    ];
   } else if (gameType === "action") {
-    currentCategory = actionMovies;
-    displayAction();
+    questions = [
+      {
+        question: "Which actor portrayed the character John Wick in the movie series 'John Wick'?",
+        options: ["Keanu Reeves", "Tom Cruise", "Chris Hemsworth", "Brad Pitt"],
+        answer: "Keanu Reeves"
+      },
+      {
+        question: "In the movie 'Die Hard', which building is taken over by terrorists?",
+        options: ["Empire State Building", "Burj Khalifa", "Nakatomi Plaza", "Eiffel Tower"],
+        answer: "Nakatomi Plaza"
+      },
+      {
+        question: "Who directed the movie 'The Dark Knight'?",
+        options: ["Christopher Nolan", "Steven Spielberg", "James Cameron", "Quentin Tarantino"],
+        answer: "Christopher Nolan"
+      },
+      {
+        question: "Which actor portrayed the character Tony Stark in the Marvel Cinematic Universe?",
+        options: ["Robert Downey Jr.", "Chris Evans", "Chris Hemsworth", "Mark Ruffalo"],
+        answer: "Robert Downey Jr."
+      }
+    ];
   } else if (gameType === "horror") {
-    currentCategory = horrorMovies;
-    displayHorror();
-  } else {
-    console.log("Invalid game type");
+    questions = [
+      {
+        question: "In the movie 'The Exorcist', which young girl is possessed by a demonic entity?",
+        options: ["Emily Rose", "Linda Blair", "Carrie White", "Samara Morgan"],
+        answer: "Linda Blair"
+      },
+      {
+        question: "Who directed the movie 'The Shining'?",
+        options: ["Stanley Kubrick", "Alfred Hitchcock", "Wes Craven", "John Carpenter"],
+        answer: "Stanley Kubrick"
+      },
+      {
+        question: "What is the name of the supernatural entity that terrorizes the characters in the movie 'It'?",
+        options: ["Pennywise", "Freddy Krueger", "Michael Myers", "Jason Voorhees"],
+        answer: "Pennywise"
+      },
+      {
+        question: "Which horror movie franchise features a doll named Chucky?",
+        options: ["Child's Play", "Saw", "The Conjuring", "Insidious"],
+        answer: "Child's Play"
+      }
+    ];
   }
+
+  displayQuestions(questions);
 }
 
-function displayComedy() {
-  const comedyMovies = [
-    {
-      question: "Who played the main character in the movie 'Dumb and Dumber'?",
-      options: ["Jim Carrey", "Will Ferrell", "Adam Sandler", "Eddie Murphy"],
-      answer: "Jim Carrey"
-    },
-    {
-      question: "In the movie 'Anchorman: The Legend of Ron Burgundy', which city does Ron Burgundy work in?",
-      options: ["Los Angeles", "New York City", "San Diego", "Chicago"],
-      answer: "San Diego"
-    },
-    {
-      question: "What is the name of the comedy movie series about a group of friends and their misadventures in Las Vegas?",
-      options: ["The Hangover", "Superbad", "Bridesmaids", "Ted"],
-      answer: "The Hangover"
-    },
-    {
-      question: "Which actor played the character Michael Scott in the TV series 'The Office'?",
-      options: ["Steve Carell", "Jason Bateman", "Seth Rogen", "Will Ferrell"],
-      answer: "Steve Carell"
-    }
-  ];
-}
+const comedyButton = document.getElementById("comedy-btn");
+const actionButton = document.getElementById("action-btn");
+const horrorButton = document.getElementById("horror-btn");
 
-function displayAction() {
-  const actionMovies = [
-    {
-      question: "Which actor portrayed the character John Wick in the movie series 'John Wick'?",
-      options: ["Keanu Reeves", "Tom Cruise", "Chris Hemsworth", "Brad Pitt"],
-      answer: "Keanu Reeves"
-    },
-    {
-      question: "In the movie 'Die Hard', which building is taken over by terrorists?",
-      options: ["Empire State Building", "Burj Khalifa", "Nakatomi Plaza", "Eiffel Tower"],
-      answer: "Nakatomi Plaza"
-    },
-    {
-      question: "Who directed the movie 'The Dark Knight'?",
-      options: ["Christopher Nolan", "Steven Spielberg", "James Cameron", "Quentin Tarantino"],
-      answer: "Christopher Nolan"
-    },
-    {
-      question: "Which actor portrayed the character Tony Stark in the Marvel Cinematic Universe?",
-      options: ["Robert Downey Jr.", "Chris Evans", "Chris Hemsworth", "Mark Ruffalo"],
-      answer: "Robert Downey Jr."
-    }
-  ];
-}
-
-function displayHorror() {
-  const horrorMovies = [
-    {
-      question: "In the movie 'The Exorcist', which young girl is possessed by a demonic entity?",
-      options: ["Emily Rose", "Linda Blair", "Carrie White", "Samara Morgan"],
-      answer: "Linda Blair"
-    },
-    {
-      question: "Who directed the movie 'The Shining'?",
-      options: ["Stanley Kubrick", "Alfred Hitchcock", "Wes Craven", "John Carpenter"],
-      answer: "Stanley Kubrick"
-    },
-    {
-      question: "What is the name of the supernatural entity that terrorizes the characters in the movie 'It'?",
-      options: ["Pennywise", "Freddy Krueger", "Michael Myers", "Jason Voorhees"],
-      answer: "Pennywise"
-    },
-    {
-      question: "Which horror movie franchise features a doll named Chucky?",
-      options: ["Child's Play", "Saw", "The Conjuring", "Insidious"],
-      answer: "Child's Play"
-    }
-  ];
-  
-}
-
-function score() {
-
-}
-
-function checkAnswer() {
-  console.log(hello);
-}
+comedyButton.addEventListener("click", () => runGame("comedy"));
+actionButton.addEventListener("click", () => runGame("action"));
+horrorButton.addEventListener("click", () => runGame("horror"));
