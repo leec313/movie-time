@@ -1,14 +1,19 @@
+let currentQuestionIndex = 0;
+let selectedOption;
+
 // Function to display questions and options
 function displayQuestions(questions) {
   const questionElement = document.getElementById("question-container");
   const optionsElement = document.getElementById("options-container");
   const nextButton = document.getElementById("submit-btn");
 
-  let currentQuestionIndex = 0;
+
 
   // Show the current question and options
   function showQuestion() {
-    const currentQuestion = questions[currentQuestionIndex];
+    console.log("showQuestions");
+    console.log(currentQuestionIndex, "  INDEX")
+    let currentQuestion = questions[currentQuestionIndex];
     questionElement.textContent = currentQuestion.question;
 
     optionsElement.innerHTML = "";
@@ -30,17 +35,17 @@ function displayQuestions(questions) {
   function selectOption(event) {
     const selectedOption = event.target;
     const options = Array.from(optionsElement.getElementsByClassName("options-container"));
-
     options.forEach((option) => {
+
       option.classList.remove("selected");
     });
 
     selectedOption.classList.add("selected");
-    checkAnswer();
   }
 
   // Function to move to the next question
   function nextQuestion() {
+
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
       showQuestion();
@@ -51,6 +56,7 @@ function displayQuestions(questions) {
       let submit = document.getElementById("submit-btn");
       submit.textContent = "Well done!";
     }
+
   }
 
   // Attach event listener to the next button
@@ -64,6 +70,7 @@ function runGame(gameType) {
   let questions;
 
   if (gameType === "comedy") {
+    currentQuestionIndex = 0;
     questions = [
       {
         question: "Who played the main character in the movie 'Dumb and Dumber'?",
@@ -87,6 +94,7 @@ function runGame(gameType) {
       }
     ];
   } else if (gameType === "action") {
+    currentQuestionIndex = 0;
     questions = [
       {
         question: "Which actor portrayed the character John Wick in the movie series 'John Wick'?",
@@ -110,6 +118,7 @@ function runGame(gameType) {
       }
     ];
   } else if (gameType === "horror") {
+    currentQuestionIndex = 0;
     questions = [
       {
         question: "In the movie 'The Exorcist', which young girl is possessed by a demonic entity?",
@@ -137,16 +146,23 @@ function runGame(gameType) {
   displayQuestions(questions);
 }
 
-function checkAnswer(questions, currentQuestionIndex) {
-  const selectedOption = document.getElementsByClassName('option selected');
+function checkAnswer(questions) {
+  console.log("heeeeey")
+  const selectedOption = document.getElementsByClassName("option selected");
   if (selectedOption) {
     const userAnswer = selectedOption.value;
+    console.log(selectedOption)
     if (userAnswer === questions[currentQuestionIndex].answer) {
       scoreContainer.textContent = ++score;
     }
     selectedOption.checked = false;
     currentQuestionIndex++;
-    displayQuestions(questions, currentQuestionIndex);
+    if (currentQuestionIndex < questions.length) {
+      displayQuestions(questions, currentQuestionIndex);
+    } else {
+      // No more questions, end the game or perform any desired actions
+      console.log('Game Over!');
+    }
   }
 }
 
@@ -157,3 +173,4 @@ const horrorButton = document.getElementById("horror-btn");
 comedyButton.addEventListener("click", () => runGame("comedy"));
 actionButton.addEventListener("click", () => runGame("action"));
 horrorButton.addEventListener("click", () => runGame("horror"));
+
