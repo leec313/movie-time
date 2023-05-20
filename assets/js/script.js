@@ -13,7 +13,7 @@ function displayQuestions(questions) {
 
     optionsElement.innerHTML = "";
     currentQuestion.options.forEach((option) => {
-      const optionElement = document.createElement("div");
+      const optionElement = document.createElement("button");
       optionElement.classList.add("option");
       optionElement.textContent = option;
       optionsElement.appendChild(optionElement);
@@ -21,24 +21,22 @@ function displayQuestions(questions) {
       // Add event listener to each option
       optionElement.addEventListener("click", selectOption);
     });
-
-    nextButton.disabled = true;
+    // On category submission, change button text to submit
+    let submit = document.getElementById("submit-btn");
+    submit.textContent = "Submit";
   }
 
   // Function to handle option selection
   function selectOption(event) {
     const selectedOption = event.target;
-    const options = Array.from(optionsElement.children);
+    const options = Array.from(optionsElement.getElementsByClassName("options-container"));
 
     options.forEach((option) => {
-      if (option === selectedOption) {
-        option.classList.add("selected");
-      } else {
-        option.classList.remove("selected");
-      }
+      option.classList.remove("selected");
     });
 
-    nextButton.disabled = false;
+    selectedOption.classList.add("selected");
+    checkAnswer();
   }
 
   // Function to move to the next question
@@ -50,7 +48,8 @@ function displayQuestions(questions) {
       // Quiz ended
       questionElement.textContent = "Quiz ended!";
       optionsElement.innerHTML = "";
-      nextButton.disabled = true;
+      let submit = document.getElementById("submit-btn");
+      submit.textContent = "Well done!";
     }
   }
 
@@ -136,6 +135,19 @@ function runGame(gameType) {
   }
 
   displayQuestions(questions);
+}
+
+function checkAnswer(questions, currentQuestionIndex) {
+  const selectedOption = document.getElementsByClassName('option selected');
+  if (selectedOption) {
+    const userAnswer = selectedOption.value;
+    if (userAnswer === questions[currentQuestionIndex].answer) {
+      scoreContainer.textContent = ++score;
+    }
+    selectedOption.checked = false;
+    currentQuestionIndex++;
+    displayQuestions(questions, currentQuestionIndex);
+  }
 }
 
 const comedyButton = document.getElementById("comedy-btn");
