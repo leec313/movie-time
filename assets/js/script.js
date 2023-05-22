@@ -4,6 +4,9 @@ let currentQuestionIndex = 0;
 let score = 0;
 //Hiding the score div if it's 0
 document.getElementById("score-container").style.visibility = "hidden";
+// Hiding the current category until the function is called
+document.getElementById("current-category").style.visibility = "hidden";
+
 
 // Function used to display the questions
 function displayQuestions(questions) {
@@ -80,9 +83,11 @@ function displayQuestions(questions) {
       questionElement.textContent = "Quiz ended!";
       optionsElement.innerHTML = "";
       nextButton.textContent = "Play Again";
+      // removing both event listeners so that the button does not run the unnecessary functions
       nextButton.removeEventListener("click", nextQuestion);
-      nextButton.addEventListener("click", () => restartGame(gameType));
-
+      nextButton.removeEventListener("click", checkAnswer);
+      // Add event listener for restarting the game
+      nextButton.addEventListener("click", restartGame);
     }
   }
 
@@ -92,10 +97,21 @@ function displayQuestions(questions) {
   showQuestion();
 }
 
+// Restarts game
+function restartGame() {
+  currentQuestionIndex = 0;
+  score = 0;
+  showQuestion();
+  nextButton.removeEventListener("click", restartGame); // Remove the event listener for restarting the game
+  nextButton.addEventListener("click", checkAnswer); // Add event listener for checking the answer
+}
+
+
 // This function holds the game data and assigns the correct game type depending on the user choice
 function runGame(gameType) {
   let questions;
-
+  hideCatagories();
+  showPlaying(gameType);
   if (gameType === "comedy") {
     currentQuestionIndex = 0;
     questions = [
@@ -120,10 +136,6 @@ function runGame(gameType) {
         answer: "Steve Carell"
       }
     ];
-
-    //document.getElementById("category-buttons").style.visibility = "hidden";
-
-
   } else if (gameType === "action") {
     currentQuestionIndex = 0;
     questions = [
@@ -177,18 +189,17 @@ function runGame(gameType) {
   displayQuestions(questions);
 }
 
-function restartGame(gameType) {
-  // Reset the current question index and score
-  let questionElement = document.getElementById("question-container");
-  let optionsElement = document.getElementById("options-container");
-  questionElement.textContent = "";
-  optionsElement.innerHTML = "";
+function hideCatagories() {
+  // Hiding the category buttons once one is selected
+  document.getElementById("category-buttons").style.visibility = "hidden";
+}
 
-  // Update the score in the HTML
-  let scoreElement = document.getElementById("score-container");
-  scoreElement.textContent = score;
+function showPlaying(gameType) {
+  document.getElementById("current-category").style.visibility = "visible";
+  // Shows the current category that the user is playing
+  category = document.getElementById('current-category');
 
-  runGame(gameType);
+  category.textContent = gameType;
 }
 
 
