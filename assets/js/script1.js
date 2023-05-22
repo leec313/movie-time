@@ -1,85 +1,73 @@
-// Setting the index to 0 so that the below variable matches up with the question index
 let currentQuestionIndex = 0;
-let score = 0;
 
-// Function used to display the questions
+// Function to display questions and options
 function displayQuestions(questions) {
-  // Getting the elements from the index.html in order to create the buttons
-  let questionElement = document.getElementById("question-container");
-  let optionsElement = document.getElementById("options-container");
-  let nextButton = document.getElementById("submit-btn");
+  const questionElement = document.getElementById("question-container");
+  const optionsElement = document.getElementById("options-container");
+  const nextButton = document.getElementById("submit-btn");
 
-  // Function to show each question and push the html buttons/display to the index.html
+
+
+  // Show the current question and options
   function showQuestion() {
     let currentQuestion = questions[currentQuestionIndex];
     questionElement.textContent = currentQuestion.question;
 
     optionsElement.innerHTML = "";
     currentQuestion.options.forEach((option) => {
-      let optionElement = document.createElement("button");
+      const optionElement = document.createElement("button");
       optionElement.classList.add("option");
       optionElement.textContent = option;
       optionsElement.appendChild(optionElement);
 
+      // Add event listener to each option
       optionElement.addEventListener("click", selectOption);
-    });
 
-    nextButton.textContent = "Submit";
+    });
+    // On category submission, change button text to submit
+    let submit = document.getElementById("submit-btn");
+    submit.textContent = "Submit";
   }
 
-  // Function used to track which option is being selected by the user
+  // Function to handle option selection
   function selectOption(event) {
-    let selectedOption = event.target;
-    let options = Array.from(optionsElement.getElementsByClassName("option"));
+    const selectedOption = event.target;
+    const options = Array.from(optionsElement.getElementsByClassName("option"));
 
-    // Adds "selected" to the class for the option that is selected
     options.forEach((option) => {
+
       option.classList.remove("selected");
     });
 
-    // Removes the selected class when moving onto the next question
     selectedOption.classList.add("selected");
   }
 
-  // Checks the user's selected option with the correct option by accessing the dictionaries in the array below
-  function checkAnswer() {
-    let currentQuestion = questions[currentQuestionIndex];
-    let selectedOption = document.querySelector(".selected");
-
-    if (selectedOption && selectedOption.textContent === currentQuestion.answer) {
-      console.log("Correct answer!");
-      score++;
-      let scoreElement = document.getElementById("score-container");
-      scoreElement.textContent = "Score: " + score;
-      console.log(score)
-    } else {
-      console.log("Wrong answer!");
-      // Perform any desired actions for a wrong answer
-    }
-
-    // Moves onto the next question once check is complete
-    nextQuestion();
-  }
-
-  // Function for the next question
+  // Function to move to the next question
   function nextQuestion() {
+
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
       showQuestion();
     } else {
+      // Quiz ended
       questionElement.textContent = "Quiz ended!";
       optionsElement.innerHTML = "";
-      nextButton.textContent = "Well done!";
-      nextButton.removeEventListener("click", checkAnswer);
+      let submit = document.getElementById("submit-btn");
+      submit.textContent = "Well done!";
     }
+
   }
 
-  nextButton.addEventListener("click", checkAnswer);
+  // Attach event listener to the next button
+  // for calling the next question
+  //nextButton.addEventListener("click", nextQuestion);
+  // for calling the checkAnswer function
+  nextButton.addEventListener("click", handleButtonClick);
 
+  // Show the first question
   showQuestion();
 }
 
-// This function holds the game data and assigns the correct game type depending on the user choice
 function runGame(gameType) {
   let questions;
 
@@ -160,9 +148,50 @@ function runGame(gameType) {
   displayQuestions(questions);
 }
 
-let comedyButton = document.getElementById("comedy-btn");
-let actionButton = document.getElementById("action-btn");
-let horrorButton = document.getElementById("horror-btn");
+function checkAnswer(questions) {
+  console.log("checkAnswer function is running");
+
+  // Get the current question
+  const currentQuestion = questions[currentQuestionIndex];
+
+  // Get all the buttons with the class "option"
+  const buttons = document.querySelectorAll('.option');
+
+  // Variable to store the selected option
+  let selectedOption = '';
+
+  // Function to handle the button click event
+  function handleButtonClick(event) {
+    // Get the text content of the clicked button
+    const option = event.target.textContent;
+
+    // Store the selected option in the variable
+    selectedOption = option;
+    // Get the current question
+    const currentQuestion = questions[currentQuestionIndex];
+    // Check the selected option against the correct answer
+    if (selectedOption === currentQuestion.answer) {
+      console.log("Correct answer!");
+      // Perform any desired actions for a correct answer
+    } else {
+      console.log("Wrong answer!");
+      // Perform any desired actions for a wrong answer
+    }
+    // calling the nextAnswer function inside the handleButtonClick function
+    nextQuestion();
+
+  }
+
+  // Attach click event listener to each button
+  buttons.forEach(button => {
+    button.addEventListener('click', handleButtonClick);
+  });
+}
+
+
+const comedyButton = document.getElementById("comedy-btn");
+const actionButton = document.getElementById("action-btn");
+const horrorButton = document.getElementById("horror-btn");
 
 comedyButton.addEventListener("click", () => runGame("comedy"));
 actionButton.addEventListener("click", () => runGame("action"));
