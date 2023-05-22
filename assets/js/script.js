@@ -1,6 +1,9 @@
 // Setting the index to 0 so that the below variable matches up with the question index
 let currentQuestionIndex = 0;
+//Setting score to 0 to start the game
 let score = 0;
+//Hiding the score div if it's 0
+document.getElementById("score-container").style.visibility = "hidden";
 
 // Function used to display the questions
 function displayQuestions(questions) {
@@ -25,6 +28,13 @@ function displayQuestions(questions) {
     });
 
     nextButton.textContent = "Submit";
+
+    //hiding the score if 0 and displaying it if more than 0
+    if (score <= 0) {
+      document.getElementById("score-container").style.visibility = "hidden";
+    } else {
+      document.getElementById("score-container").style.visibility = "visible";
+    }
   }
 
   // Function used to track which option is being selected by the user
@@ -69,11 +79,14 @@ function displayQuestions(questions) {
     } else {
       questionElement.textContent = "Quiz ended!";
       optionsElement.innerHTML = "";
-      nextButton.textContent = "Well done!";
-      nextButton.removeEventListener("click", checkAnswer);
+      nextButton.textContent = "Play Again";
+      nextButton.removeEventListener("click", nextQuestion);
+      nextButton.addEventListener("click", () => restartGame(gameType));
+
     }
   }
 
+  nextButton.removeEventListener("click", nextQuestion);
   nextButton.addEventListener("click", checkAnswer);
 
   showQuestion();
@@ -107,6 +120,10 @@ function runGame(gameType) {
         answer: "Steve Carell"
       }
     ];
+
+    //document.getElementById("category-buttons").style.visibility = "hidden";
+
+
   } else if (gameType === "action") {
     currentQuestionIndex = 0;
     questions = [
@@ -159,6 +176,21 @@ function runGame(gameType) {
 
   displayQuestions(questions);
 }
+
+function restartGame(gameType) {
+  // Reset the current question index and score
+  let questionElement = document.getElementById("question-container");
+  let optionsElement = document.getElementById("options-container");
+  questionElement.textContent = "";
+  optionsElement.innerHTML = "";
+
+  // Update the score in the HTML
+  let scoreElement = document.getElementById("score-container");
+  scoreElement.textContent = score;
+
+  runGame(gameType);
+}
+
 
 let comedyButton = document.getElementById("comedy-btn");
 let actionButton = document.getElementById("action-btn");
