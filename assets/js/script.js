@@ -9,8 +9,8 @@ function welcome() {
   document.getElementById("score-container").style.visibility = "hidden";
   document.getElementById("incorrect-container").style.visibility = "hidden";
   // Hiding the current category and submit button until the function is called
-  document.getElementById("current-category").style.visibility = "hidden";
-  document.getElementById("submit-btn").style.visibility = "hidden";
+  document.getElementById("current-category").style.display = "none";
+  document.getElementById("submit-btn").style.display = "none";
 
   //Getting the category buttons from the index.html and assigning them to variables
   let comedyButton = document.getElementById("comedy-btn");
@@ -44,7 +44,7 @@ function displayQuestions(questions) {
   let questionElement = document.getElementById("question-container");
   let optionsElement = document.getElementById("options-container");
   // Making submit button visible after function is called
-  document.getElementById("submit-btn").style.visibility = "visible";
+  document.getElementById("submit-btn").style.display = "block";
   let nextButton = document.getElementById("submit-btn");
 
 
@@ -158,13 +158,19 @@ function checkAnswer(questions, questionElement, optionsElement, nextButton) {
   }
 }
 
-
 // Restarts game
 function restartGame() {
   // Reload the current document to restart the game
   location.reload();
 }
 
+// Function to shuffle an array using Fisher-Yates shuffle algorithm
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
 // This function holds the game data and assigns the correct game type depending on the user choice
 function runGame(gameType) {
@@ -193,6 +199,36 @@ function runGame(gameType) {
         question: "Which actor played the character Michael Scott in the TV series 'The Office'?",
         options: ["Steve Carell", "Jason Bateman", "Seth Rogen", "Will Ferrell"],
         answer: "Steve Carell"
+      },
+      {
+        question: "Which actor portrayed the character Ron Burgundy in the movie 'Anchorman: The Legend of Ron Burgundy'?",
+        options: ["Will Ferrell", "Steve Carell", "Paul Rudd", "David Koechner"],
+        answer: "Will Ferrell"
+      },
+      {
+        question: "Who directed the comedy film 'Bridesmaids'?",
+        options: ["Paul Feig", "Judd Apatow", "Adam McKay", "Seth Rogen"],
+        answer: "Paul Feig"
+      },
+      {
+        question: "Which actress played the character Elle Woods in the comedy film 'Legally Blonde'?",
+        options: ["Reese Witherspoon", "Cameron Diaz", "Jennifer Aniston", "Kate Hudson"],
+        answer: "Reese Witherspoon"
+      },
+      {
+        question: "What is the name of the comedy film series that follows the lives of three buddies and their exploits in college?",
+        options: ["American Pie", "Old School", "Animal House", "Neighbors"],
+        answer: "American Pie"
+      },
+      {
+        question: "In the movie 'Zoolander', which actor plays the titular character, a dimwitted male model?",
+        options: ["Ben Stiller", "Owen Wilson", "Will Ferrell", "Vince Vaughn"],
+        answer: "Ben Stiller"
+      },
+      {
+        question: "Which comedy film features a character named Austin Powers, an international man of mystery?",
+        options: ["Austin Powers: International Man of Mystery", "Anchorman: The Legend of Ron Burgundy", "Dodgeball: A True Underdog Story", "Step Brothers"],
+        answer: "Austin Powers: International Man of Mystery"
       }
     ];
   } else if (gameType === "action") {
@@ -217,6 +253,36 @@ function runGame(gameType) {
         question: "Which actor portrayed the character Tony Stark in the Marvel Cinematic Universe?",
         options: ["Robert Downey Jr.", "Chris Evans", "Chris Hemsworth", "Mark Ruffalo"],
         answer: "Robert Downey Jr."
+      },
+      {
+        question: "Which actress portrayed the character Wonder Woman in the DC Extended Universe films?",
+        options: ["Gal Gadot", "Scarlett Johansson", "Jennifer Lawrence", "Brie Larson"],
+        answer: "Gal Gadot"
+      },
+      {
+        question: "In the movie 'Mission: Impossible - Fallout', who directed the high-octane action sequences and stunts?",
+        options: ["Christopher McQuarrie", "J.J. Abrams", "Brad Bird", "James Wan"],
+        answer: "Christopher McQuarrie"
+      },
+      {
+        question: "Which actor played the character Wolverine in the X-Men film series?",
+        options: ["Hugh Jackman", "Ryan Reynolds", "Chris Pratt", "Tom Hardy"],
+        answer: "Hugh Jackman"
+      },
+      {
+        question: "Who directed the action film 'Mad Max: Fury Road'?",
+        options: ["George Miller", "Michael Bay", "Ridley Scott", "James Cameron"],
+        answer: "George Miller"
+      },
+      {
+        question: "Which actor portrayed the character Dominic Toretto in the 'Fast & Furious' film series?",
+        options: ["Vin Diesel", "Dwayne Johnson", "Jason Statham", "Tyrese Gibson"],
+        answer: "Vin Diesel"
+      },
+      {
+        question: "In the movie 'The Matrix', which actor played the role of Neo, a computer hacker turned savior of humanity?",
+        options: ["Keanu Reeves", "Brad Pitt", "Tom Cruise", "Leonardo DiCaprio"],
+        answer: "Keanu Reeves"
       }
     ];
   } else if (gameType === "horror") {
@@ -241,23 +307,59 @@ function runGame(gameType) {
         question: "Which horror movie franchise features a doll named Chucky?",
         options: ["Child's Play", "Saw", "The Conjuring", "Insidious"],
         answer: "Child's Play"
+      },
+      {
+        question: "Which actress portrayed the character Laurie Strode in the 'Halloween' film series?",
+        options: ["Jamie Lee Curtis", "Neve Campbell", "Emma Roberts", "Taissa Farmiga"],
+        answer: "Jamie Lee Curtis"
+      },
+      {
+        question: "Who directed the horror film 'A Nightmare on Elm Street'?",
+        options: ["Wes Craven", "John Carpenter", "Tobe Hooper", "Sam Raimi"],
+        answer: "Wes Craven"
+      },
+      {
+        question: "Which horror film follows a family terrorized by a group of masked strangers during a home invasion?",
+        options: ["The Strangers", "Get Out", "The Babadook", "It Follows"],
+        answer: "The Strangers"
+      },
+      {
+        question: "In the movie 'The Conjuring', which real-life paranormal investigators are the central characters?",
+        options: ["Ed and Lorraine Warren", "Jason and Samara Morgan", "Michael and Laurie Myers", "Freddy and Nancy Krueger"],
+        answer: "Ed and Lorraine Warren"
+      },
+      {
+        question: "Which actor portrayed the character Norman Bates in Alfred Hitchcock's film 'Psycho'?",
+        options: ["Anthony Perkins", "Robert Englund", "Christopher Lee", "Jack Nicholson"],
+        answer: "Anthony Perkins"
+      },
+      {
+        question: "Who directed the supernatural horror film 'Hereditary'?",
+        options: ["Ari Aster", "Jordan Peele", "Mike Flanagan", "Guillermo del Toro"],
+        answer: "Ari Aster"
       }
-
     ];
   } else { // error handling
     alert("incorrect Game type submission");
   }
+
+  // Calls the shuffleArray function and passes the questions to it
+  shuffleArray(questions);
+
+  // Shuffle the order of options for each question
+  questions.forEach((question) => shuffleArray(question.options));
+
   // Displays the question category submitted by the user
   displayQuestions(questions);
 }
 
 function hideCatagories() {
   // Hiding the category buttons once one is selected
-  document.getElementById("category-buttons").style.visibility = "hidden";
+  document.getElementById("category-buttons").style.display = "none";
 }
 
 function showPlaying(gameType) {
-  document.getElementById("current-category").style.visibility = "visible";
+  document.getElementById("current-category").style.display = "block";
   // Shows the current category that the user is playing
   category = document.getElementById('current-category');
 
