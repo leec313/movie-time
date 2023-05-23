@@ -2,11 +2,21 @@
 let currentQuestionIndex = 0;
 //Setting score to 0 to start the game
 let score = 0;
+let incorrect = 0;
 //Hiding the score div if it's 0
 document.getElementById("score-container").style.visibility = "hidden";
+document.getElementById("incorrect-container").style.visibility = "hidden";
 // Hiding the current category until the function is called
 document.getElementById("current-category").style.visibility = "hidden";
 
+//Getting the category buttons from the index.html and assigning them to variables
+let comedyButton = document.getElementById("comedy-btn");
+let actionButton = document.getElementById("action-btn");
+let horrorButton = document.getElementById("horror-btn");
+//adding event listeners to each button to run the selected game type
+comedyButton.addEventListener("click", () => runGame("comedy"));
+actionButton.addEventListener("click", () => runGame("action"));
+horrorButton.addEventListener("click", () => runGame("horror"));
 
 // Function used to display the questions
 function displayQuestions(questions) {
@@ -38,6 +48,13 @@ function displayQuestions(questions) {
     } else {
       document.getElementById("score-container").style.visibility = "visible";
     }
+
+    //hiding the incorrects if 0 and displaying it if more than 0
+    if (incorrect <= 0) {
+      document.getElementById("incorrect-container").style.visibility = "hidden";
+    } else {
+      document.getElementById("incorrect-container").style.visibility = "visible";
+    }
   }
 
   // Function used to track which option is being selected by the user
@@ -67,7 +84,9 @@ function displayQuestions(questions) {
       console.log(score)
     } else {
       console.log("Wrong answer!");
-      // Perform any desired actions for a wrong answer
+      incorrect++;
+      let scoreElement = document.getElementById("incorrect-container");
+      scoreElement.textContent = "Incorrect: " + incorrect;
     }
 
     // Moves onto the next question once check is complete
@@ -180,9 +199,12 @@ function runGame(gameType) {
         options: ["Child's Play", "Saw", "The Conjuring", "Insidious"],
         answer: "Child's Play"
       }
-    ];
-  }
 
+    ];
+  } else { // error handling
+    alert("incorrect Game type submission");
+  }
+  // Displays the question category submitted by the user
   displayQuestions(questions);
 }
 
@@ -198,13 +220,4 @@ function showPlaying(gameType) {
 
   category.textContent = gameType;
 }
-
-
-let comedyButton = document.getElementById("comedy-btn");
-let actionButton = document.getElementById("action-btn");
-let horrorButton = document.getElementById("horror-btn");
-
-comedyButton.addEventListener("click", () => runGame("comedy"));
-actionButton.addEventListener("click", () => runGame("action"));
-horrorButton.addEventListener("click", () => runGame("horror"));
 

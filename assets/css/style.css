@@ -75,7 +75,12 @@ button {
   padding: 10px 20px;
 }
 
-#score-container {
+#results {
+  display: flex;
+}
+
+#score-container,
+#incorrect-container {
   width: fit-content;
   font-size: 24px;
   background-color: #4CAF50;
