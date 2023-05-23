@@ -6,8 +6,24 @@ let incorrect = 0;
 //Hiding the score div if it's 0
 document.getElementById("score-container").style.visibility = "hidden";
 document.getElementById("incorrect-container").style.visibility = "hidden";
-// Hiding the current category until the function is called
+// Hiding the current category and submit button until the function is called
 document.getElementById("current-category").style.visibility = "hidden";
+document.getElementById("submit-btn").style.visibility = "hidden";
+
+// Calling the welcome function
+welcome();
+
+function welcome() {
+  let welcomeContainer = document.getElementById('quiz-container');
+  let messageHeading = document.createElement("h2");
+  let message = document.createElement('p');
+  messageHeading.setAttribute('id', 'welcome-heading');
+  message.setAttribute('id', 'welcome-p');
+  messageHeading.innerHTML = 'Welcome!';
+  message.innerHTML = 'Choose a category above to begin the quiz'
+  welcomeContainer.appendChild(messageHeading);
+  welcomeContainer.appendChild(message);
+}
 
 //Getting the category buttons from the index.html and assigning them to variables
 let comedyButton = document.getElementById("comedy-btn");
@@ -20,26 +36,37 @@ horrorButton.addEventListener("click", () => runGame("horror"));
 
 // Function used to display the questions
 function displayQuestions(questions) {
+
+  let welcomeHeading = document.getElementById("welcome-heading");
+  welcomeHeading.remove();
+  let welcomeP = document.getElementById("welcome-p");
+  welcomeP.remove();
+
   // Getting the elements from the index.html in order to create the buttons
   let questionElement = document.getElementById("question-container");
   let optionsElement = document.getElementById("options-container");
+  // Making submit button visible after function is called
+  document.getElementById("submit-btn").style.visibility = "visible";
   let nextButton = document.getElementById("submit-btn");
 
   // Function to show each question and push the html buttons/display to the index.html
   function showQuestion() {
+
     let currentQuestion = questions[currentQuestionIndex];
     questionElement.textContent = currentQuestion.question;
 
     optionsElement.innerHTML = "";
-    currentQuestion.options.forEach((option) => {
+    let optionIndex = 0;
+    while (optionIndex < currentQuestion.options.length) {
       let optionElement = document.createElement("button");
       optionElement.classList.add("option");
-      optionElement.textContent = option;
+      optionElement.textContent = currentQuestion.options[optionIndex];
       optionsElement.appendChild(optionElement);
 
       optionElement.addEventListener("click", selectOption);
-    });
 
+      optionIndex++;
+    }
     nextButton.textContent = "Submit";
 
     //hiding the score if 0 and displaying it if more than 0
@@ -56,6 +83,13 @@ function displayQuestions(questions) {
       document.getElementById("incorrect-container").style.visibility = "visible";
     }
   }
+
+  // Creates a restart button so that the user can restart the game while playing
+  let restartButton = document.createElement("button");
+  restartButton.setAttribute('id', 'restart');
+  restartButton.innerText = "Restart";
+  document.body.appendChild(restartButton);
+  restartButton.addEventListener("click", restartGame);
 
   // Function used to track which option is being selected by the user
   function selectOption(event) {
@@ -76,25 +110,29 @@ function displayQuestions(questions) {
     let currentQuestion = questions[currentQuestionIndex];
     let selectedOption = document.querySelector(".selected");
 
+    // if correct, adds to score | if incorrect, adds to incorrect | otherwise, produces alert to user
     if (selectedOption && selectedOption.textContent === currentQuestion.answer) {
       console.log("Correct answer!");
       score++;
       let scoreElement = document.getElementById("score-container");
       scoreElement.textContent = "Score: " + score;
       console.log(score)
-    } else {
+      // Moves onto the next question once check is complete
+      nextQuestion();
+    } else if (selectedOption && selectedOption.textContent != currentQuestion.answer) {
       console.log("Wrong answer!");
       incorrect++;
       let scoreElement = document.getElementById("incorrect-container");
       scoreElement.textContent = "Incorrect: " + incorrect;
+      // Moves onto the next question once check is complete
+      nextQuestion();
+    } else { // error handling - if no option was selected, user gets feedback and game remains on same question
+      alert("Please select an option or restart the game");
     }
-
-    // Moves onto the next question once check is complete
-    nextQuestion();
   }
 
   // Function for the next question
-  function nextQuestion() {
+  function nextQuestion(restartButton) {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
       showQuestion();
@@ -107,6 +145,8 @@ function displayQuestions(questions) {
       nextButton.removeEventListener("click", checkAnswer);
       // Add event listener for restarting the game
       nextButton.addEventListener("click", restartGame);
+      //
+      document.getElementById("restart").style.visibility = "hidden";
     }
   }
 

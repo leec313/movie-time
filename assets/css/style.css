@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins&display=swap');
+
 #quiz-container {
   max-width: 100%;
   margin-top: 50px;
@@ -18,13 +20,21 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
+  font-family: 'Poppins', sans-serif;
 }
 
 h1 {
-  font-size: 48px;
+  font-family: 'Lobster', cursive;
+  font-size: 64px;
   margin-bottom: 30px;
   color: #fff;
-  text-transform: uppercase;
+}
+
+#comedy-btn,
+#action-btn,
+#horror-btn {
+  font-family: 'Lobster', cursive;
+  font-size: 25px;
 }
 
 #quiz-container {
@@ -63,12 +73,10 @@ button {
 }
 
 #current-category {
+  font-family: 'Lobster', cursive;
+  font-size: 25px;
   text-transform: capitalize;
-  font-size: 150%;
   background-color: red;
-  color: #fff;
-  width: fit-content;
-  font-size: 24px;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -89,5 +97,4 @@ button {
   border-radius: 5px;
   padding: 10px 20px;
   margin: 10px;
-  margin-top: 10%;
 }
