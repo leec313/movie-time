@@ -47,40 +47,7 @@ function displayQuestions(questions) {
   document.getElementById("submit-btn").style.visibility = "visible";
   let nextButton = document.getElementById("submit-btn");
 
-  // Function to show each question and push the html buttons/display to the index.html
-  function showQuestion() {
 
-    let currentQuestion = questions[currentQuestionIndex];
-    questionElement.textContent = currentQuestion.question;
-
-    optionsElement.innerHTML = "";
-    let optionIndex = 0;
-    while (optionIndex < currentQuestion.options.length) {
-      let optionElement = document.createElement("button");
-      optionElement.classList.add("option");
-      optionElement.textContent = currentQuestion.options[optionIndex];
-      optionsElement.appendChild(optionElement);
-
-      optionElement.addEventListener("click", selectOption);
-
-      optionIndex++;
-    }
-    nextButton.textContent = "Submit";
-
-    //hiding the score if 0 and displaying it if more than 0
-    if (score <= 0) {
-      document.getElementById("score-container").style.visibility = "hidden";
-    } else {
-      document.getElementById("score-container").style.visibility = "visible";
-    }
-
-    //hiding the incorrects if 0 and displaying it if more than 0
-    if (incorrect <= 0) {
-      document.getElementById("incorrect-container").style.visibility = "hidden";
-    } else {
-      document.getElementById("incorrect-container").style.visibility = "visible";
-    }
-  }
 
   // Creates a restart button so that the user can restart the game while playing
   let restartButton = document.createElement("button");
@@ -89,70 +56,107 @@ function displayQuestions(questions) {
   document.body.appendChild(restartButton);
   restartButton.addEventListener("click", restartGame);
 
-  // Function used to track which option is being selected by the user
-  function selectOption(event) {
-    let selectedOption = event.target;
-    let options = Array.from(optionsElement.getElementsByClassName("option"));
-
-    // Adds "selected" to the class for the option that is selected
-    options.forEach((option) => {
-      option.classList.remove("selected");
-    });
-
-    // Removes the selected class when moving onto the next question
-    selectedOption.classList.add("selected");
-  }
-
-  // Checks the user's selected option with the correct option by accessing the dictionaries in the array below
-  function checkAnswer() {
-    let currentQuestion = questions[currentQuestionIndex];
-    let selectedOption = document.querySelector(".selected");
-
-    // if correct, adds to score | if incorrect, adds to incorrect | otherwise, produces alert to user
-    if (selectedOption && selectedOption.textContent === currentQuestion.answer) {
-      console.log("Correct answer!");
-      score++;
-      let scoreElement = document.getElementById("score-container");
-      scoreElement.textContent = "Score: " + score;
-      console.log(score)
-      // Moves onto the next question once check is complete
-      nextQuestion();
-    } else if (selectedOption && selectedOption.textContent != currentQuestion.answer) {
-      console.log("Wrong answer!");
-      incorrect++;
-      let scoreElement = document.getElementById("incorrect-container");
-      scoreElement.textContent = "Incorrect: " + incorrect;
-      // Moves onto the next question once check is complete
-      nextQuestion();
-    } else { // error handling - if no option was selected, user gets feedback and game remains on same question
-      alert("Please select an option or restart the game");
-    }
-  }
-
-  // Function for the next question
-  function nextQuestion() {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-      showQuestion();
-    } else {
-      questionElement.textContent = "Quiz ended!";
-      optionsElement.innerHTML = "";
-      nextButton.textContent = "Play Again";
-      // removing both event listeners so that the button does not run the unnecessary functions
-      nextButton.removeEventListener("click", nextQuestion);
-      nextButton.removeEventListener("click", checkAnswer);
-      // Add event listener for restarting the game
-      nextButton.addEventListener("click", restartGame);
-      //
-      document.getElementById("restart").style.visibility = "hidden";
-    }
-  }
-
   nextButton.removeEventListener("click", nextQuestion);
-  nextButton.addEventListener("click", checkAnswer);
+  nextButton.addEventListener("click", () => checkAnswer(questions, questionElement, optionsElement, nextButton));
 
-  showQuestion();
+
+  showQuestion(questions, questionElement, optionsElement, nextButton);
 }
+
+// Function to show each question and push the html buttons/display to the index.html
+function showQuestion(questions, questionElement, optionsElement, nextButton) {
+
+  let currentQuestion = questions[currentQuestionIndex];
+  questionElement.textContent = currentQuestion.question;
+
+  optionsElement.innerHTML = "";
+  let optionIndex = 0;
+  while (optionIndex < currentQuestion.options.length) {
+    let optionElement = document.createElement("button");
+    optionElement.classList.add("option");
+    optionElement.textContent = currentQuestion.options[optionIndex];
+    optionsElement.appendChild(optionElement);
+
+    optionElement.addEventListener("click", () => selectOption(event, optionsElement));
+
+    optionIndex++;
+  }
+  nextButton.textContent = "Submit";
+
+  //hiding the score if 0 and displaying it if more than 0
+  if (score <= 0) {
+    document.getElementById("score-container").style.visibility = "hidden";
+  } else {
+    document.getElementById("score-container").style.visibility = "visible";
+  }
+
+  //hiding the incorrects if 0 and displaying it if more than 0
+  if (incorrect <= 0) {
+    document.getElementById("incorrect-container").style.visibility = "hidden";
+  } else {
+    document.getElementById("incorrect-container").style.visibility = "visible";
+  }
+}
+
+// Function used to track which option is being selected by the user
+function selectOption(event, optionsElement) {
+  let selectedOption = event.target;
+  let options = Array.from(optionsElement.getElementsByClassName("option"));
+
+  // Adds "selected" to the class for the option that is selected
+  options.forEach((option) => {
+    option.classList.remove("selected");
+  });
+
+  // Removes the selected class when moving onto the next question
+  selectedOption.classList.add("selected");
+}
+
+// Function for the next question
+function nextQuestion(questions, questionElement, optionsElement, nextButton) {
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    showQuestion(questions, questionElement, optionsElement, nextButton);
+  } else {
+    questionElement.textContent = "Quiz ended!";
+    optionsElement.innerHTML = "";
+    nextButton.textContent = "Play Again";
+    // removing both event listeners so that the button does not run the unnecessary functions
+    nextButton.removeEventListener("click", nextQuestion);
+    nextButton.removeEventListener("click", checkAnswer);
+    // Add event listener for restarting the game
+    nextButton.addEventListener("click", restartGame);
+    // Hiding the restart button as the play again button will restart the game
+    document.getElementById("restart").style.visibility = "hidden";
+  }
+}
+
+// Checks the user's selected option with the correct option by accessing the dictionaries in the array below
+function checkAnswer(questions, questionElement, optionsElement, nextButton) {
+  currentQuestion = questions[currentQuestionIndex];
+  let selectedOption = document.querySelector(".selected");
+
+  // if correct, adds to score | if incorrect, adds to incorrect | otherwise, produces alert to user
+  if (selectedOption && selectedOption.textContent === currentQuestion.answer) {
+    console.log("Correct answer!");
+    score++;
+    let scoreElement = document.getElementById("score-container");
+    scoreElement.textContent = "Score: " + score;
+    console.log(score)
+    // Moves onto the next question once check is complete
+    nextQuestion(questions, questionElement, optionsElement, nextButton);
+  } else if (selectedOption && selectedOption.textContent != currentQuestion.answer) {
+    console.log("Wrong answer!");
+    incorrect++;
+    let scoreElement = document.getElementById("incorrect-container");
+    scoreElement.textContent = "Incorrect: " + incorrect;
+    // Moves onto the next question once check is complete
+    nextQuestion(questions, questionElement, optionsElement, nextButton);
+  } else { // error handling - if no option was selected, user gets feedback and game remains on same question
+    alert("Please select an option or restart the game");
+  }
+}
+
 
 // Restarts game
 function restartGame() {
