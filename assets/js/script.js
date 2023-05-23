@@ -138,18 +138,19 @@ function checkAnswer(questions, questionElement, optionsElement, nextButton) {
 
   // if correct, adds to score | if incorrect, adds to incorrect | otherwise, produces alert to user
   if (selectedOption && selectedOption.textContent === currentQuestion.answer) {
-    console.log("Correct answer!");
     score++;
     let scoreElement = document.getElementById("score-container");
     scoreElement.textContent = "Score: " + score;
-    console.log(score)
+    // Calling the showCorrectAnswer function so we can clear the textContent since the answer was correct
+    showCorrectAnswer(selectedOption);
     // Moves onto the next question once check is complete
     nextQuestion(questions, questionElement, optionsElement, nextButton);
   } else if (selectedOption && selectedOption.textContent != currentQuestion.answer) {
-    console.log("Wrong answer!");
     incorrect++;
     let scoreElement = document.getElementById("incorrect-container");
     scoreElement.textContent = "Incorrect: " + incorrect;
+    // Calling the showCorrectAnswer function since the user got it incorrect and we need to show them the previous answer
+    showCorrectAnswer(selectedOption);
     // Moves onto the next question once check is complete
     nextQuestion(questions, questionElement, optionsElement, nextButton);
   } else if (currentQuestionIndex < questions.length) { // error handling - if no option was selected, user gets feedback and game remains on same question
@@ -376,6 +377,18 @@ function displayError() {
 // Closes the error popup on selection of the OK button
 function closeError() {
   document.getElementById("error").style.display = "none";
+}
+
+// This shows the correct answer if the user gets it incorrect
+function showCorrectAnswer(selectedOption) {
+  let showCorrect = document.getElementById("show-correct");
+  if (selectedOption.textContent === currentQuestion.answer) {
+    showCorrect.textContent = "Correct!";
+    document.getElementById("show-correct").style.color = "#4CAF50";
+  } else {
+    showCorrect.innerHTML = "The previous answer was incorrect. You should have chosen: <br />" + currentQuestion.answer;
+    document.getElementById("show-correct").style.color = "#b63b2a";
+  }
 }
 
 // Calling the welcome function
