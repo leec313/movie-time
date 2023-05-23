@@ -81,7 +81,7 @@ function showQuestion(questions, questionElement, optionsElement, nextButton) {
 
     optionIndex++;
   }
-  nextButton.textContent = "Submit";
+  nextButton.textContent = "Next";
 
   //hiding the score if 0 and displaying it if more than 0
   if (score <= 0) {
@@ -152,8 +152,9 @@ function checkAnswer(questions, questionElement, optionsElement, nextButton) {
     scoreElement.textContent = "Incorrect: " + incorrect;
     // Moves onto the next question once check is complete
     nextQuestion(questions, questionElement, optionsElement, nextButton);
-  } else { // error handling - if no option was selected, user gets feedback and game remains on same question
+  } else if (currentQuestionIndex < questions.length) { // error handling - if no option was selected, user gets feedback and game remains on same question
     alert("Please select an option or restart the game");
+    throw "No option selected";
   }
 }
 
