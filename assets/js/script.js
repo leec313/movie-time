@@ -3,17 +3,24 @@ let currentQuestionIndex = 0;
 //Setting score to 0 to start the game
 let score = 0;
 let incorrect = 0;
-//Hiding the score div if it's 0
-document.getElementById("score-container").style.visibility = "hidden";
-document.getElementById("incorrect-container").style.visibility = "hidden";
-// Hiding the current category and submit button until the function is called
-document.getElementById("current-category").style.visibility = "hidden";
-document.getElementById("submit-btn").style.visibility = "hidden";
-
-// Calling the welcome function
-welcome();
 
 function welcome() {
+  //Hiding the score div if it's 0
+  document.getElementById("score-container").style.visibility = "hidden";
+  document.getElementById("incorrect-container").style.visibility = "hidden";
+  // Hiding the current category and submit button until the function is called
+  document.getElementById("current-category").style.visibility = "hidden";
+  document.getElementById("submit-btn").style.visibility = "hidden";
+
+  //Getting the category buttons from the index.html and assigning them to variables
+  let comedyButton = document.getElementById("comedy-btn");
+  let actionButton = document.getElementById("action-btn");
+  let horrorButton = document.getElementById("horror-btn");
+  //adding event listeners to each button to run the selected game type
+  comedyButton.addEventListener("click", () => runGame("comedy"));
+  actionButton.addEventListener("click", () => runGame("action"));
+  horrorButton.addEventListener("click", () => runGame("horror"));
+
   let welcomeContainer = document.getElementById('quiz-container');
   let messageHeading = document.createElement("h2");
   let message = document.createElement('p');
@@ -24,15 +31,6 @@ function welcome() {
   welcomeContainer.appendChild(messageHeading);
   welcomeContainer.appendChild(message);
 }
-
-//Getting the category buttons from the index.html and assigning them to variables
-let comedyButton = document.getElementById("comedy-btn");
-let actionButton = document.getElementById("action-btn");
-let horrorButton = document.getElementById("horror-btn");
-//adding event listeners to each button to run the selected game type
-comedyButton.addEventListener("click", () => runGame("comedy"));
-actionButton.addEventListener("click", () => runGame("action"));
-horrorButton.addEventListener("click", () => runGame("horror"));
 
 // Function used to display the questions
 function displayQuestions(questions) {
@@ -132,7 +130,7 @@ function displayQuestions(questions) {
   }
 
   // Function for the next question
-  function nextQuestion(restartButton) {
+  function nextQuestion() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
       showQuestion();
@@ -260,4 +258,7 @@ function showPlaying(gameType) {
 
   category.textContent = gameType;
 }
+
+// Calling the welcome function
+welcome();
 
