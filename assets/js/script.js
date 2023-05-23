@@ -99,11 +99,8 @@ function displayQuestions(questions) {
 
 // Restarts game
 function restartGame() {
-  currentQuestionIndex = 0;
-  score = 0;
-  showQuestion();
-  nextButton.removeEventListener("click", restartGame); // Remove the event listener for restarting the game
-  nextButton.addEventListener("click", checkAnswer); // Add event listener for checking the answer
+  // Reload the current document to restart the game
+  location.reload();
 }
 
 
