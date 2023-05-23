@@ -153,7 +153,7 @@ function checkAnswer(questions, questionElement, optionsElement, nextButton) {
     // Moves onto the next question once check is complete
     nextQuestion(questions, questionElement, optionsElement, nextButton);
   } else if (currentQuestionIndex < questions.length) { // error handling - if no option was selected, user gets feedback and game remains on same question
-    alert("Please select an option or restart the game");
+    displayError();
     throw "No option selected";
   }
 }
@@ -341,6 +341,7 @@ function runGame(gameType) {
     ];
   } else { // error handling
     alert("incorrect Game type submission");
+    throw "incorrect Game type submission";
   }
 
   // Calls the shuffleArray function and passes the questions to it
@@ -353,17 +354,28 @@ function runGame(gameType) {
   displayQuestions(questions);
 }
 
+// Hiding the category buttons once one is selected
 function hideCatagories() {
-  // Hiding the category buttons once one is selected
   document.getElementById("category-buttons").style.display = "none";
 }
 
+// Shows the current category that the user is playing
 function showPlaying(gameType) {
   document.getElementById("current-category").style.display = "block";
-  // Shows the current category that the user is playing
   category = document.getElementById('current-category');
-
   category.textContent = gameType;
+}
+
+// Display the user a popup error message if they press next without selecting a question
+function displayError() {
+  document.getElementById("error").style.display = "flex";
+  okButton = document.getElementById("errorOk");
+  okButton.addEventListener("click", closeError);
+}
+
+// Closes the error popup on selection of the OK button
+function closeError() {
+  document.getElementById("error").style.display = "none";
 }
 
 // Calling the welcome function
