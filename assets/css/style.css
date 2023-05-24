@@ -76,10 +76,7 @@ button:hover {
 /* selected option color and size change */
 .selected {
   background-color: lightseagreen;
-  transition: transform .2s;
-  transform: scale(1.2);
-  margin-left: 30px;
-  margin-right: 30px;
+  font-weight: bold;
 }
 
 /* Positioning for category buttons */
@@ -197,6 +194,14 @@ button:hover {
     display: flex;
     flex-direction: row;
     align-items: center;
+  }
+
+  .selected {
+    transition: transform .2s;
+    transform: scale(1.2);
+    margin-left: 30px;
+    margin-right: 30px;
+    font-weight: normal;
   }
 
   #error {
