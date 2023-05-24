@@ -1,42 +1,56 @@
 <!DOCTYPE html>
-<html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="Description" content="Enter your description here" />
+
+  <!--Meta description and keywords-->
+  <meta name="Description" content="Movie Time is a movie based quiz game">
+  <meta name="keywords" content="movie, quiz, game, movies, comedy, action, horror">
+
+  <!--linking to favicon-->
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 
+  <!--linking to style.css-->
   <link rel="stylesheet" href="assets/css/style.css">
 
   <title>Movie Time</title>
 </head>
 
 <body>
+  <!--Header and logo-->
   <h1>Movie Time <i class="fa-solid fa-ticket"></i></h1>
+  <!--pop up error message if no option is selected-->
   <div id="error">
     <div class="errorText">Please make a selection before moving on to the next question</div>
     <button id="errorOk">OK</button>
   </div>
+  <!--category buttons for user selection-->
   <div id="category-buttons">
     <button id="comedy-btn" data-type="comedy">Comedy</button>
     <button id="action-btn" data-type="action">Action</button>
     <button id="horror-btn" data-type="horror">Horror</button>
   </div>
+  <!--current category displayed after user chooses a category-->
   <span id="current-category"></span>
+  <!--main game area that displays questions, options and other necessary buttons/information-->
   <div id="quiz-container">
     <div id="question-container"></div>
     <div id="options-container"></div>
     <button id="submit-btn" data-type="submit"></button>
+    <!--shows "correct" or the previous answer if the user gets it incorrect-->
     <p id="show-correct"></p>
   </div>
+  <!--incorrect and correct counters-->
   <div id="results">
     <div id="score-container"></div>
     <div id="incorrect-container"></div>
   </div>
+  <!--link to js file-->
   <script src="assets/js/script.js"></script>
+  <!--link to logo icon in the h1-->
   <script src="https://kit.fontawesome.com/67f275807d.js" crossorigin="anonymous"></script>
 </body>
 

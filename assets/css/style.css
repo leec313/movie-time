@@ -1,16 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins&display=swap');
 
+/* Quiz container/Main game are*/
 #quiz-container {
-  max-width: 100%;
   margin-top: 30px;
   text-align: center;
-  padding-right: 15px;
-  padding-left: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
 }
 
+/*For the body, background image and overall positioning*/
 body {
   background-image: url("../images/background.webp");
   background-repeat: no-repeat;
@@ -22,10 +25,7 @@ body {
   min-height: 100vh
 }
 
-.hidden {
-  display: none;
-}
-
+/* Header/Logo */
 h1 {
   font-family: 'Lobster', cursive;
   font-size: 40px;
@@ -33,6 +33,7 @@ h1 {
   color: #fff;
 }
 
+/* Individual category buttons*/
 #comedy-btn,
 #action-btn,
 #horror-btn {
@@ -40,19 +41,14 @@ h1 {
   font-size: 20px;
 }
 
-#quiz-container {
-  background-color: #fff;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-}
-
+/* Styling for the questions themselves*/
 #question-container {
   color: black;
   text-transform: none;
   margin-top: 20px;
 }
 
+/* Styling for the options */
 .options-container {
   display: flex;
   flex-wrap: wrap;
@@ -60,6 +56,7 @@ h1 {
   margin-top: 20px;
 }
 
+/* default button styling */
 button {
   background-color: #4CAF50;
   color: white;
@@ -71,10 +68,12 @@ button {
   transition: background-color 0.3s ease;
 }
 
+/* hover on button color change */
 button:hover {
   background-color: lightseagreen;
 }
 
+/* selected option color and size change */
 .selected {
   background-color: lightseagreen;
   transition: transform .2s;
@@ -83,49 +82,53 @@ button:hover {
   margin-right: 30px;
 }
 
+/* Positioning for category buttons */
 #category-buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* Current category styling */
 #current-category {
   font-family: 'Lobster', cursive;
   font-size: 25px;
   text-transform: capitalize;
   background-color: #b63b2a;
   color: #fff;
-  border: none;
   border-radius: 5px;
   padding: 10px 20px;
 }
 
+/* positioning for results div elements*/
 #results {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* individual styling for the score containers*/
 #score-container,
 #incorrect-container {
-  width: fit-content;
   background-color: #4CAF50;
   color: #fff;
-  border: none;
   border-radius: 5px;
   padding: 10px 20px;
   margin: 10px;
 }
 
+/* styling for the submit/next button*/
 #submit-btn {
   background-color: #ecae4b;
   font-weight: bold;
 }
 
+/* hover effect color change for the submit/next button*/
 #submit-btn:hover {
   background-color: #b63b2a;
 }
 
+/*styling for the popup error message*/
 #error {
   display: none;
   background-color: #b63b2a;
@@ -149,6 +152,7 @@ button:hover {
   margin: 10px;
 }
 
+/*media queries*/
 @media (min-width: 768px) {
 
   h1 {
