@@ -6,8 +6,8 @@ let incorrect = 0;
 
 function welcome() {
   //Hiding the score div if it's 0
-  document.getElementById("score-container").style.visibility = "hidden";
-  document.getElementById("incorrect-container").style.visibility = "hidden";
+  document.getElementById("score-container").style.display = "none";
+  document.getElementById("incorrect-container").style.display = "none";
   // Hiding the current category and submit button until the function is called
   document.getElementById("current-category").style.display = "none";
   document.getElementById("submit-btn").style.display = "none";
@@ -85,16 +85,16 @@ function showQuestion(questions, questionElement, optionsElement, nextButton) {
 
   //hiding the score if 0 and displaying it if more than 0
   if (score <= 0) {
-    document.getElementById("score-container").style.visibility = "hidden";
+    document.getElementById("score-container").style.display = "none";
   } else {
-    document.getElementById("score-container").style.visibility = "visible";
+    document.getElementById("score-container").style.display = "block";
   }
 
   //hiding the incorrects if 0 and displaying it if more than 0
   if (incorrect <= 0) {
-    document.getElementById("incorrect-container").style.visibility = "hidden";
+    document.getElementById("incorrect-container").style.display = "none";
   } else {
-    document.getElementById("incorrect-container").style.visibility = "visible";
+    document.getElementById("incorrect-container").style.display = "block";
   }
 }
 
@@ -127,7 +127,7 @@ function nextQuestion(questions, questionElement, optionsElement, nextButton) {
     // Add event listener for restarting the game
     nextButton.addEventListener("click", restartGame);
     // Hiding the restart button as the play again button will restart the game
-    document.getElementById("restart").style.visibility = "hidden";
+    document.getElementById("restart").style.display = "none";
   }
 }
 
