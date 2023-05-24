@@ -1,5 +1,8 @@
 # Movie Time
 
+Movie Time is an interactive quiz game centered around movies, featuring three distinct categories, each comprising ten questions. Every question presents the user with four options to select from. A correct answer awards the player one point, while an incorrect response increments the incorrect score counter by one. After finishing a category, players have the option to replay the same category or opt for a different one.
+
+[Link to live site](https://leec313.github.io/movie-time/)
 
 
 
