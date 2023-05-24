@@ -1,5 +1,6 @@
-// Setting the index to 0 so that the below variable matches up with the question index
+// Setting the index to 0 and declaring the current question so that the below variable matches up with the question index
 let currentQuestionIndex = 0;
+let currentQuestion;
 //Setting score to 0 to start the game
 let score = 0;
 let incorrect = 0;
@@ -66,7 +67,7 @@ function displayQuestions(questions) {
 // Function to show each question and push the html buttons/display to the index.html
 function showQuestion(questions, questionElement, optionsElement, nextButton) {
 
-  let currentQuestion = questions[currentQuestionIndex];
+  currentQuestion = questions[currentQuestionIndex];
   questionElement.textContent = currentQuestion.question;
 
   optionsElement.innerHTML = "";
@@ -363,14 +364,14 @@ function hideCatagories() {
 // Shows the current category that the user is playing
 function showPlaying(gameType) {
   document.getElementById("current-category").style.display = "block";
-  category = document.getElementById('current-category');
+  let category = document.getElementById('current-category');
   category.textContent = gameType;
 }
 
 // Display the user a popup error message if they press next without selecting a question
 function displayError() {
   document.getElementById("error").style.display = "flex";
-  okButton = document.getElementById("errorOk");
+  let okButton = document.getElementById("errorOk");
   okButton.addEventListener("click", closeError);
 }
 
