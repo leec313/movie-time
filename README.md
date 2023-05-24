@@ -107,6 +107,7 @@ The 404 page was created for any broken links that might be entered. The user wi
   * Fonts used - 
   * [Balsamic Wireframe Software](https://balsamiq.com/wireframes/) for initial design layout
   * [responsive-readme.png - Used in readme to preview the site on all screen sizes](https://ui.dev/amiresponsive)
+  * https://bobbyhadz.com/blog/javascript-hide-element-after-few-seconds#:~:text=To%20hide%20an%20element%20after%20a%20few%20seconds%3A&text=Use%20the%20setTimeout%20method%20to,display%20property%20to%20none%20.
 
   ## **Media**
   [Background Image - Gotten from Pixabay](https://pixabay.com/photos/movie-theater-curtain-theatre-movie-4609877/)

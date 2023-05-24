@@ -386,6 +386,11 @@ function showCorrectAnswer(selectedOption) {
   if (selectedOption.textContent === currentQuestion.answer) {
     showCorrect.textContent = "Correct!";
     document.getElementById("show-correct").style.color = "#4CAF50";
+
+    //Correct message set to timeout after two seconds
+    setTimeout(() => {
+      showCorrect.textContent = "";
+    }, 2000);
   } else {
     showCorrect.innerHTML = "The previous answer was incorrect. You should have chosen: <br />" + currentQuestion.answer;
     document.getElementById("show-correct").style.color = "#b63b2a";
