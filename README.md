@@ -4,7 +4,7 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
 
 [Link to live site](https://leec313.github.io/movie-time/)
 
-
+![Responsive Image](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/responsive.png?raw=true)
 
 
 # Contents
