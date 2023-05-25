@@ -121,13 +121,13 @@ function nextQuestion(questions, questionElement, optionsElement, nextButton) {
   } else {
     questionElement.textContent = "Quiz ended!";
     optionsElement.innerHTML = "";
-    nextButton.textContent = "Play Again";
+    nextButton.textContent = "Back to Homepage";
     // removing both event listeners so that the button does not run the unnecessary functions
     nextButton.removeEventListener("click", nextQuestion);
     nextButton.removeEventListener("click", checkAnswer);
     // Add event listener for restarting the game
     nextButton.addEventListener("click", restartGame);
-    // Hiding the restart button as the play again button will restart the game
+    // Hiding the restart button as the homepage button will restart the game
     document.getElementById("restart").style.display = "none";
   }
 }
