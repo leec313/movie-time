@@ -152,7 +152,44 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
 
 # **Testing**
 
+### Validator Testing
 
+- HTML ([W3C validator](https://validator.w3.org/))
+
+![HTML](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/html.png?raw=true)
+
+- CSS [Jigsaw](https://jigsaw.w3.org/css-validator/)
+
+![CSS](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/css.png?raw=true)
+
+- JavaScript [JSHint](https://jshint.com/)
+    
+No significant issues: 
+
+![JS](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/jshint.png?raw=true)
+
+- Performance, Accessibility, SEO, Best Practices (Lighthouse Chrome DevTools)
+
+![Lighthouse](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/lighthouse.png?raw=true)
+
+### Manual Testing 
+
+| Browser | Layout | Functionality |
+| :-: | :-: | :-: |
+| Chrome | ✔ | ✔ |
+| Edge | ✔ | ✔ |
+| Firefox | ✔ | ✔ |
+| Safari | ✔ | ✔ |
+
+During functionality testing, the following aspects are assessed:
+
+- The selected category accurately displays relevant questions.
+- Option selection functions properly without encountering any issues.
+- Advancing to the next question occurs correctly when the user clicks "Next."
+- The score and incorrect counters increment appropriately as required.
+- Restarting the game functions smoothly, allowing the user to start anew.
+- The invalid selection warning is triggered when necessary, providing appropriate feedback.
+- Other essential functionalities are evaluated to ensure smooth operation and user experience.
 
 # **Deployment**
 
