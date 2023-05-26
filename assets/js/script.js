@@ -22,13 +22,13 @@ function welcome() {
   actionButton.addEventListener("click", () => runGame("action"));
   horrorButton.addEventListener("click", () => runGame("horror"));
 
-  let welcomeContainer = document.getElementById('quiz-container');
+  let welcomeContainer = document.getElementById("quiz-container");
   let messageHeading = document.createElement("h2");
-  let message = document.createElement('p');
-  messageHeading.setAttribute('id', 'welcome-heading');
-  message.setAttribute('id', 'welcome-p');
-  messageHeading.innerHTML = 'Welcome!';
-  message.innerHTML = 'Choose a category above to begin the quiz'
+  let message = document.createElement("p");
+  messageHeading.setAttribute("id", "welcome-heading");
+  message.setAttribute("id", "welcome-p");
+  messageHeading.innerHTML = "Welcome!";
+  message.innerHTML = "Choose a category above to begin the quiz";
   welcomeContainer.appendChild(messageHeading);
   welcomeContainer.appendChild(message);
 }
@@ -52,7 +52,7 @@ function displayQuestions(questions) {
 
   // Creates a restart button so that the user can restart the game while playing
   let restartButton = document.createElement("button");
-  restartButton.setAttribute('id', 'restart');
+  restartButton.setAttribute("id", "restart");
   restartButton.innerText = "Restart";
   document.body.appendChild(restartButton);
   restartButton.addEventListener("click", restartGame);
@@ -148,7 +148,7 @@ function checkAnswer(questions, questionElement, optionsElement, nextButton) {
     nextQuestion(questions, questionElement, optionsElement, nextButton);
   } else if (selectedOption && selectedOption.textContent != currentQuestion.answer) {
     incorrect++;
-    let scoreElement = document.getElementById("incorrect-container");
+    scoreElement = document.getElementById("incorrect-container");
     scoreElement.textContent = "Incorrect: " + incorrect;
     // Calling the showCorrectAnswer function since the user got it incorrect and we need to show them the previous answer
     showCorrectAnswer(selectedOption);
