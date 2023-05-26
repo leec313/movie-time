@@ -38,12 +38,18 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
   The design & wireframes for this project were produced in [Balsamic Wireframe Software](https://balsamiq.com/wireframes/). This includes design prototypes for both, smaller and larger screens. The final design does differ from the initial prototype due to design developments that occurred in the process. However, the base structure has more or less been kept in mind throughout. 
 
   ### Mobile
-IMAGE
+
+  ![Mobile Wireframe](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/mobile-wireframe.png?raw=true)
+
   ### Desktop
-IMAGE
+
+  ![Desktop Wireframe](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/desktop-wireframe.png?raw=true)
+
   ## **Structure**
 
-  Movie Time is a user-friendly, single-page website that offers effortless navigation. The game provides a convenient option to restart quizzes at any point, while also presenting the user with their score and highlighting incorrect answers. Its straightforward design ensures clear comprehension and enables smooth gameplay.
+  Movie Time is a user-friendly, single-page website that offers effortless navigation. The game provides a convenient option to restart quizzes at any point, while also presenting the user with their score and highlighting incorrect answers. Its straightforward design ensures clear comprehension and enables smooth gameplay. 
+
+  Additionally, a custom 404 page has been incorporated to handle instances where users enter an incorrect URL. This page ensures that users are provided with a helpful and user-friendly error message, guiding them back to the intended content or providing relevant navigation options.
 
   ## **Design**
 
@@ -51,7 +57,7 @@ IMAGE
 
   In designing the color palette for this game, the intention was to incorporate standout colors that enhance the gaming experience. The focus was primarily on the buttons, aiming to ensure clear visibility when selected and differentiation between them. The primary color chosen was green, while sea green was selected to represent the active button. For the submit button, yellow was used, which turns red when selected. This deliberate choice enables users to easily perceive the button states and proceed accordingly. Additionally, some colors were derived from the background image to maintain a cohesive and harmonious aesthetic.
 
-  IMAGE
+  ![Colour Palette](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/palette.png?raw=true)
 
   ### Typography
 
@@ -64,9 +70,9 @@ IMAGE
 
 ### **404 Page**
 
-The 404 page was created for any broken links that might be entered. The user will be redirected to the 404 page. 
+The 404 page has been implemented to cater to situations where users input an incorrect URL. This dedicated page ensures that users are presented with a user-friendly error message, directing them back to the desired content.
 
-![404](ADD IMAGE HERE)
+![404](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/404-readme.png?raw=true)
 
 # **Future Features**
 
@@ -120,7 +126,8 @@ The 404 page was created for any broken links that might be entered. The user wi
   * Fonts used - 
   * [Balsamic Wireframe Software](https://balsamiq.com/wireframes/) for initial design layout
   * [responsive-readme.png - Used in readme to preview the site on all screen sizes](https://ui.dev/amiresponsive)
-  * https://bobbyhadz.com/blog/javascript-hide-element-after-few-seconds#:~:text=To%20hide%20an%20element%20after%20a%20few%20seconds%3A&text=Use%20the%20setTimeout%20method%20to,display%20property%20to%20none%20.
+  * [Used this tutorial on how to hide the "correct!" text after a user gets an answer right](https://bobbyhadz.com/blog/javascript-hide-element-after-few-seconds#:~:text=To%20hide%20an%20element%20after%20a%20few%20seconds%3A&text=Use%20the%20setTimeout%20method%20to,display%20property%20to%20none%20)
+  * [Colour Palette - coolors.co](https://coolors.co/20b2aa-4caf50-b63b2a-ecae4b-ffffff)
 
   ## **Media**
   [Background Image - Gotten from Pixabay](https://pixabay.com/photos/movie-theater-curtain-theatre-movie-4609877/)
