@@ -233,7 +233,7 @@ During functionality testing, the following aspects are assessed:
   - [Gitpod](https://www.gitpod.io/#get-started) - Used to create and edit the website.
   - [GitHub](https://github.com/) - Used to host and deploy the website.
   - [GitBash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) - Terminal used to push changes to the GitHub repository.
-  - [a11y](https://color.a11y.com/Contrast/) - Used to test the contrast and accessibility.
+  - [JSHint](https://jshint.com/) for validating JavaScript
   * [Font Awesome](https://fontawesome.com/) for the icon used in the heading/logo
   * [TinyPNG](https://tinypng.com/) for compressing the bakground image
   * Fonts used - [Lobster](https://fonts.google.com/specimen/Lobster) and [Poppins](https://fonts.google.com/specimen/Poppins) from Google Fonts
@@ -243,7 +243,7 @@ During functionality testing, the following aspects are assessed:
   * [Colour Palette - coolors.co](https://coolors.co/20b2aa-4caf50-b63b2a-ecae4b-ffffff)
 
   ## **Media**
-  [Background Image - Gotten from Pixabay](https://pixabay.com/photos/movie-theater-curtain-theatre-movie-4609877/)
+  [Background Image - from Pixabay](https://pixabay.com/photos/movie-theater-curtain-theatre-movie-4609877/)
  
 
   # **Acknowledgments**
