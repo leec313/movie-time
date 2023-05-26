@@ -95,6 +95,8 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
 
   The quiz area is comprised of engaging questions, multiple options for each question, a convenient next button for progression, and additional feedback for users. When a user selects an incorrect answer, the previous answer will be displayed, helping them identify their mistake. Conversely, if the user selects the correct answer, a congratulatory message will appear momentarily, enhancing their sense of achievement. The correct message will automatically vanish after a duration of 2 seconds, allowing users to focus on the subsequent questions without interruption.
 
+  To provide variety and prevent repetition, the system generates questions and options randomly. This ensures that users won't encounter the same question order repeatedly when they choose to replay the game. By implementing random question generation, each playthrough offers a fresh and engaging experience for the user.
+
   ![Quiz Area](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/quiz-area.png?raw=true)
 
   ![Incorrect answer](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/incorrect-answer.png?raw=true)
@@ -132,6 +134,22 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
   ![404](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/404-readme.png?raw=true)
 
 # **Future Features**
+
+  ### Varying levels of difficulty
+
+  To enhance the challenge and provide different levels of difficulty, the quiz game would incorporate various levels that are linked to specific sets of questions. Each level presents a progressively higher level of difficulty by offering different questions with more options for the user to choose from, making it harder to select the correct answer. This approach adds complexity and depth to the gameplay, encouraging users to test their knowledge and skills as they advance through different difficulty levels.
+
+  ### Prizes
+
+  A system where users can win prizes by answering questions correctly. When a user reaches a specific number of correct answers, a popup will appear, presenting them with a prize. The prize will then be showcased in a designated area on the webpage as part of their collection.
+
+  ### User login/Account creation
+
+  The system will enable users to save their progress, allowing them to log back in and resume their game from where they left off. Additionally, it will provide them with the ability to view their collected prizes, provided the previously mentioned feature is implemented. To accommodate returning users, the quiz will need to offer a larger pool of questions and multiple levels to ensure an engaging experience each time they revisit the game.
+
+  ### Sound effects
+
+  It would be an appealing addition to include a continuous background track while the user interacts with the system. Moreover, incorporating a cheering sound effect for correct answers and a jeering sound effect for incorrect answers would enhance the user experience. To offer flexibility, a mute/unmute toggle should be provided, allowing users to control the sound effects according to their preference.
 
 # **Testing**
 
