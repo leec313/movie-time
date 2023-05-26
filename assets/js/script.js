@@ -119,7 +119,7 @@ function nextQuestion(questions, questionElement, optionsElement, nextButton) {
   if (currentQuestionIndex < questions.length) {
     showQuestion(questions, questionElement, optionsElement, nextButton);
   } else {
-    questionElement.textContent = "Quiz ended!";
+    questionElement.textContent = "Congratulations, you've completed the quiz!";
     optionsElement.innerHTML = "";
     nextButton.textContent = "Back to Homepage";
     // removing both event listeners so that the button does not run the unnecessary functions

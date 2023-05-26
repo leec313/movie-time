@@ -67,12 +67,69 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
 
   ## **Existing Features**
 
+  ### **Heading/Logo**
 
-### **404 Page**
+  Situated at the top of the website, there is a prominent display of the site's name accompanied by a fitting icon that seamlessly complements the overall theme.
 
-The 404 page has been implemented to cater to situations where users input an incorrect URL. This dedicated page ensures that users are presented with a user-friendly error message, directing them back to the desired content.
+  ![Heading](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/logo-title.png?raw=true)
 
-![404](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/404-readme.png?raw=true)
+  ### **Categories** 
+
+  The categories section is thoughtfully designed to provide users with a clear and concise selection of three options. Each option represents a distinct theme, encompassing a wide array of questions and corresponding answers. This approach allows users to easily choose a category that aligns with their preferences and interests.
+
+  ![Categories](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/categories.png?raw=true)
+
+  ### **Welcome** 
+
+  Upon entering the website, the welcome area invites users to select their preferred category from the visually appealing and well-organized categories section. Once a category is chosen, the quiz promptly commences, immersing users into the interactive gaming experience.
+
+  ![Welcome](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/welcome.png?raw=true)
+
+  ### **Current Category**
+
+  After making a selection from the categories section, the chosen quiz category is promptly displayed to the user, providing a clear confirmation of the current quiz type they have entered. This ensures that users are aware of the specific theme they will be engaging with and sets the stage for an enjoyable and focused quiz experience.
+  
+  ![Current Category](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/current-category.png?raw=true)
+
+  ### **Quiz Area** 
+
+  The quiz area is comprised of engaging questions, multiple options for each question, a convenient next button for progression, and additional feedback for users. When a user selects an incorrect answer, the previous answer will be displayed, helping them identify their mistake. Conversely, if the user selects the correct answer, a congratulatory message will appear momentarily, enhancing their sense of achievement. The correct message will automatically vanish after a duration of 2 seconds, allowing users to focus on the subsequent questions without interruption.
+
+  ![Quiz Area](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/quiz-area.png?raw=true)
+
+  ![Incorrect answer](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/incorrect-answer.png?raw=true)
+
+  ![Correct answer](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/correct-answer.png?raw=true)
+
+  ### **Score Display** 
+
+  The score display feature provides users with an ongoing summary of their performance by presenting the number of incorrect and correct answers they have chosen throughout the quiz. This enables users to easily keep track of their score and assess their progress as they navigate through the quiz.
+
+  ![Score Display](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/score.png?raw=true)
+
+  ### **Restart Button**
+
+  The restart button offers users the convenience of resetting the game and returning to the initial welcome message. By clicking on the restart button, users can easily start the game over, allowing them to engage in a fresh round of gameplay and explore different quiz categories.
+
+  ![Restart](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/restart.png?raw=true)
+
+  ### **Invalid Selection Popup**
+
+  In cases where the user fails to select an option and clicks the next button, a popup alert is triggered, notifying them that they must choose an option to proceed. Upon clicking the OK button on the popup, the user is redirected back to the current question, prompting them to make a selection before progressing further. This ensures that users are reminded to provide an answer and encourages active participation in the quiz.
+
+  ![Invalid](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/non-input.png?raw=true)
+
+  ### **Quiz Completed**
+
+  Once the user completes all the questions within a specific category, a congratulatory message is displayed, indicating that the quiz has come to an end. Additionally, a button is provided to allow the user to conveniently return to the homepage. This feature enables users to celebrate their accomplishment and seamlessly navigate back to explore other sections or categories of the website.
+
+  ![Completed](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/finished.png?raw=true)
+
+  ### **404 Page**
+
+  The 404 page has been implemented to cater to situations where users input an incorrect URL. This dedicated page ensures that users are presented with a user-friendly error message, directing them back to the desired content.
+
+  ![404](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/404-readme.png?raw=true)
 
 # **Future Features**
 
