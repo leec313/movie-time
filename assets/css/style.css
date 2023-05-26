@@ -107,7 +107,7 @@ button:hover {
 /* individual styling for the score containers*/
 #score-container,
 #incorrect-container {
-  background-color: #4CAF50;
+  background-color: #b63b2a;
   color: #fff;
   border-radius: 5px;
   padding: 10px 20px;

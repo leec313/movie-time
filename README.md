@@ -29,6 +29,7 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
 
 
 # **Objective**
+  Portfolio Project Two aims to showcase my proficiency in JavaScript through the creation of a meticulously designed quiz game. The primary goal is to provide users with an engaging and professionally developed gaming experience. The project emphasizes the significance of thorough testing and great attention to detail to ensure a high-quality product.
 
 # **User Experience (UX)**
 
@@ -36,13 +37,25 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
 
   The design & wireframes for this project were produced in [Balsamic Wireframe Software](https://balsamiq.com/wireframes/). This includes design prototypes for both, smaller and larger screens. The final design does differ from the initial prototype due to design developments that occurred in the process. However, the base structure has more or less been kept in mind throughout. 
 
+  ### Mobile
+IMAGE
+  ### Desktop
+IMAGE
   ## **Structure**
+
+  Movie Time is a user-friendly, single-page website that offers effortless navigation. The game provides a convenient option to restart quizzes at any point, while also presenting the user with their score and highlighting incorrect answers. Its straightforward design ensures clear comprehension and enables smooth gameplay.
 
   ## **Design**
 
   ### Colour Palette
 
+  In designing the color palette for this game, the intention was to incorporate standout colors that enhance the gaming experience. The focus was primarily on the buttons, aiming to ensure clear visibility when selected and differentiation between them. The primary color chosen was green, while sea green was selected to represent the active button. For the submit button, yellow was used, which turns red when selected. This deliberate choice enables users to easily perceive the button states and proceed accordingly. Additionally, some colors were derived from the background image to maintain a cohesive and harmonious aesthetic.
+
+  IMAGE
+
   ### Typography
+
+  For the chosen fonts, I opted for [Lobster](https://fonts.google.com/specimen/Lobster) and [Poppins](https://fonts.google.com/specimen/Poppins). Lobster was specifically utilized for the title and categories sections, creating a playful and engaging vibe that aligns with the game's nature. In case Lobster is not available, a cursive font is used as a fallback. On the other hand, Poppins was selected for the remaining body text, ensuring clarity and readability for users. In the event that Poppins is not accessible, a sans-serif font is used as an alternative. By combining these fonts, the design achieves a balance between playful aesthetics and clear legibility, enhancing the overall user experience.
 
 # **Features**
 
