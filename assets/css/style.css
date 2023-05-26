@@ -39,6 +39,7 @@ h1 {
 #horror-btn {
   font-family: 'Lobster', cursive;
   font-size: 20px;
+  font-weight: bold;
 }
 
 /* Styling for the questions themselves*/

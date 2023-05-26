@@ -18,7 +18,6 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
     * [**Typography**](<#typography>)
 * [**Features**](<#features>)
   * [**Existing Features**](<#existing-features>)
-    * [**404 Page**](<#404-page>)
   * [**Future Features**](<#future-features>)
 * [**Testing**](<#testing>)
 * [**Deployment**](<#deployment>)
@@ -135,19 +134,19 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
 
 # **Future Features**
 
-  ### Varying levels of difficulty
+  ### **Varying levels of difficulty**
 
   To enhance the challenge and provide different levels of difficulty, the quiz game would incorporate various levels that are linked to specific sets of questions. Each level presents a progressively higher level of difficulty by offering different questions with more options for the user to choose from, making it harder to select the correct answer. This approach adds complexity and depth to the gameplay, encouraging users to test their knowledge and skills as they advance through different difficulty levels.
 
-  ### Prizes
+  ### **Prizes**
 
   A system where users can win prizes by answering questions correctly. When a user reaches a specific number of correct answers, a popup will appear, presenting them with a prize. The prize will then be showcased in a designated area on the webpage as part of their collection.
 
-  ### User login/Account creation
+  ### **User login/Account creation**
 
   The system will enable users to save their progress, allowing them to log back in and resume their game from where they left off. Additionally, it will provide them with the ability to view their collected prizes, provided the previously mentioned feature is implemented. To accommodate returning users, the quiz will need to offer a larger pool of questions and multiple levels to ensure an engaging experience each time they revisit the game.
 
-  ### Sound effects
+  ### **Sound effects**
 
   It would be an appealing addition to include a continuous background track while the user interacts with the system. Moreover, incorporating a cheering sound effect for correct answers and a jeering sound effect for incorrect answers would enhance the user experience. To offer flexibility, a mute/unmute toggle should be provided, allowing users to control the sound effects according to their preference.
 
@@ -164,7 +163,7 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
 
   The live link can be found here - https://leec313.github.io/movie-time/
 
-  ![deploy](ADD IMAGE HERE)
+  ![deploy](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/deploy.png?raw=true)
 
 
 ## Local Deployment
@@ -172,7 +171,7 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
 - I also deployed the site locally by downloading the .zip file from Github to my device.
 - I unzipped the file and tested each link page to make sure it opened correctly on my browser. 
 
-![local-deploy](ADD IMAGE HERE)
+![local-deploy](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/local.png?raw=true)
 
 ## To Fork the Repository 
 
@@ -181,7 +180,7 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
   1. Log in to **GitHub** and locate the [repository](https://github.com/leec313/movie-time).
   2. On the right-hand side of the page inline with the repository name is a button called **'Fork'**, click on the button to create a copy of the original repository in your GitHub Account.
 
-  ![fork](ADD IMAGE HERE)
+  ![fork](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/fork.png?raw=true)
 
 # **Credits**
 
@@ -198,7 +197,7 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
   - [a11y](https://color.a11y.com/Contrast/) - Used to test the contrast and accessibility.
   * [Font Awesome](https://fontawesome.com/) for the icon used in the heading/logo
   * [TinyPNG](https://tinypng.com/) for compressing the bakground image
-  * Fonts used - 
+  * Fonts used - [Lobster](https://fonts.google.com/specimen/Lobster) and [Poppins](https://fonts.google.com/specimen/Poppins) from Google Fonts
   * [Balsamic Wireframe Software](https://balsamiq.com/wireframes/) for initial design layout
   * [responsive-readme.png - Used in readme to preview the site on all screen sizes](https://ui.dev/amiresponsive)
   * [Used this tutorial on how to hide the "correct!" text after a user gets an answer right](https://bobbyhadz.com/blog/javascript-hide-element-after-few-seconds#:~:text=To%20hide%20an%20element%20after%20a%20few%20seconds%3A&text=Use%20the%20setTimeout%20method%20to,display%20property%20to%20none%20)
