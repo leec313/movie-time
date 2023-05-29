@@ -16,6 +16,7 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
   * [**Design**](<#design>)
     * [**Colour Palette**](<#colour-palette>)
     * [**Typography**](<#typography>)
+* [**Responsive View**](<#responsive-view>)
 * [**Features**](<#features>)
   * [**Existing Features**](<#existing-features>)
   * [**Future Features**](<#future-features>)
@@ -61,6 +62,10 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
   ### Typography
 
   For the chosen fonts, I opted for [Lobster](https://fonts.google.com/specimen/Lobster) and [Poppins](https://fonts.google.com/specimen/Poppins). Lobster was specifically utilized for the title and categories sections, creating a playful and engaging vibe that aligns with the game's nature. In case Lobster is not available, a cursive font is used as a fallback. On the other hand, Poppins was selected for the remaining body text, ensuring clarity and readability for users. In the event that Poppins is not accessible, a sans-serif font is used as an alternative. By combining these fonts, the design achieves a balance between playful aesthetics and clear legibility, enhancing the overall user experience.
+
+# **Responsive View**
+
+
 
 # **Features**
 
