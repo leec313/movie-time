@@ -144,7 +144,9 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
 
   ### **Error Handling** 
 
-  
+  In the script.js file, at line 159, I have implemented a throw statement to generate a custom error and send it to the console. This particular statement is used to verify if the user clicks the "next" button while still having questions remaining in the quiz. It serves as a mechanism for error handling.
+
+  ![error-handling](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/error-handling.png?raw=true)
 
 # **Future Features**
 
@@ -186,6 +188,10 @@ No significant issues:
 
 ![Lighthouse](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/lighthouse.png?raw=true)
 
+**Accessibility**
+
+
+
 ### Manual Testing 
 
 | Browser | Layout | Functionality |
@@ -204,6 +210,12 @@ During functionality testing, the following aspects are assessed:
 - Restarting the game functions smoothly, allowing the user to start anew.
 - The invalid selection warning is triggered when necessary, providing appropriate feedback.
 - Other essential functionalities are evaluated to ensure smooth operation and user experience.
+
+### Key learnings
+
+* I want to emphasize the effort I dedicated to refactoring the JavaScript code and the valuable lessons I learned, particularly regarding the implementation of parameter passing between functions. Initially, I resorted to using numerous nested      functions as a workaround, which, although effective in reducing the reliance on global variables, resulted in a cluttered and convoluted code structure. By adopting the practice of passing parameters between functions, I successfully streamlined the code and improved its readability. This refactoring process has significantly enhanced the code's robustness and will facilitate better comprehension for other developers, which is of utmost importance.
+
+* I implemented a straightforward yet highly effective code snippet to randomize the questions and options presented to the user. To achieve this, I utilized the renowned Fisher-Yates algorithm. This algorithm, known for its efficiency and simplicity, enabled me to shuffle the questions and options in a randomized manner. By incorporating the Fisher-Yates algorithm into my code, I ensured that the questions and options appear in a different order each time, enhancing the overall user experience and adding an element of surprise to the quiz.
 
 # **Deployment**
 
@@ -255,6 +267,7 @@ During functionality testing, the following aspects are assessed:
   * [responsive-readme.png - Used in readme to preview the site on all screen sizes](https://ui.dev/amiresponsive)
   * [Used this tutorial on how to hide the "correct!" text after a user gets an answer right](https://bobbyhadz.com/blog/javascript-hide-element-after-few-seconds#:~:text=To%20hide%20an%20element%20after%20a%20few%20seconds%3A&text=Use%20the%20setTimeout%20method%20to,display%20property%20to%20none%20)
   * [Colour Palette - coolors.co](https://coolors.co/20b2aa-4caf50-b63b2a-ecae4b-ffffff)
+  * [Fisher Yates shuffle algorithm](https://www.tutorialspoint.com/what-is-fisher-yates-shuffle-in-javascript)
 
   ## **Media**
   [Background Image - from Pixabay](https://pixabay.com/photos/movie-theater-curtain-theatre-movie-4609877/)
