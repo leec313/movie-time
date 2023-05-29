@@ -65,7 +65,12 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
 
 # **Responsive View**
 
+  I would like to demonstrate the responsive design of the website. In the features section, you can observe the desktop version of the quiz. Here's a brief glimpse of how it appears on mobile devices.
 
+![Welcome](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/responsive1.png?raw=true)
+![Quiz](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/responsive2.png?raw=true)
+![End](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/responsive3.png?raw=true)
+![Error](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/responsive4.png?raw=true)
 
 # **Features**
 
@@ -137,6 +142,10 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
 
   ![404](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/404-readme.png?raw=true)
 
+  ### **Error Handling** 
+
+  
+
 # **Future Features**
 
   ### **Varying levels of difficulty**
@@ -171,7 +180,7 @@ Movie Time is an interactive quiz game centered around movies, featuring three d
     
 No significant issues: 
 
-![JS](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/jshint.png?raw=true)
+![JS](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/jshint1.png?raw=true)
 
 - Performance, Accessibility, SEO, Best Practices (Lighthouse Chrome DevTools)
 
