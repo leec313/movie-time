@@ -190,7 +190,9 @@ No significant issues:
 
 **Accessibility**
 
+The accessibility score is currently 94 because Lighthouse indicates that the contrast between the white text and the green buttons is insufficient. However, I personally believe that the contrast is adequate, and I am satisfied with the color choices on the website, considering the design element.
 
+![lighthouse-accessibility](https://github.com/leec313/movie-time/blob/main/assets/images/readme%20images/lighthouse-accessibility.png?raw=true)
 
 ### Manual Testing 
 
